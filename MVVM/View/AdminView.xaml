@@ -1,0 +1,13 @@
+﻿<Window x:Class="MVVM.View.AdminView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="{Binding Path=DisplayName}"
+        WindowStartupLocation="CenterScreen"
+        FontSize="13" FontFamily="Verdana"
+        MinWidth="900" MinHeight="700" 
+        Width="900" Height="700">
+    <Grid>
+        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center"
+                   Text="This window is only accessible for administrators..." />
+    </Grid>
+</Window>
