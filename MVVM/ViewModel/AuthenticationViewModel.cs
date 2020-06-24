@@ -2,13 +2,14 @@
 using MVVM.Properties;
 using MVVM.Service.Authentication;
 using MVVM.Service.Identity;
-using MVVM.View;
+using MVVM.Service.Repository;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Collections.Specialized;
 using System.ComponentModel;
 using System.Diagnostics;
+using System.Linq;
 using System.Security;
 using System.Threading;
 using System.Windows;
@@ -21,6 +22,7 @@ namespace MVVM.ViewModel
     {
         #region Fields
         private readonly IAuthenticationService _authenticationService;
+        private readonly CustomerRepository _customerRepository;
         ObservableCollection<WorkspaceViewModel> _workspaces;
         ReadOnlyCollection<CommandViewModel> _commands;
         private Credential _credential;
@@ -40,7 +42,7 @@ namespace MVVM.ViewModel
             LoginCommand = new RelayCommand(Login, CanLogin);
             LogoutCommand = new RelayCommand(Logout, CanLogout);
             ShowViewCommand = new RelayCommand(ShowView, null);
-
+            _customerRepository = new CustomerRepository("Service/Repository/customers.xml");
             base.DisplayTitle = Resources.AuthenticationViewModel_DisplayTitle;
         }
         #endregion // Constructor
@@ -155,10 +157,7 @@ namespace MVVM.ViewModel
             try
             {
                 this.Credential.Status = string.Empty;
-                IView view;
-                if (parameter == null) view = new AdminView();
-                else view = new CustomerView();
-                view.Show();
+          
             }
             catch (SecurityException ex)
             {
@@ -211,29 +210,28 @@ namespace MVVM.ViewModel
         {
             return new List<CommandViewModel>
             {
-                new CommandViewModel(Resources.AuthenticationViewModel_Command_CreateNewCustomer, new RelayCommand(param => this.CreateNewCustomer())),
+                new CommandViewModel(Resources.AuthenticationViewModel_Command_CreateNewCustomer, new RelayCommand(CreateNewCustomer)),
+                new CommandViewModel(Resources.AuthenticationViewModel_Command_AllCustomers, new RelayCommand(param => this.ShowAllCustomers())),
                 new CommandViewModel(Resources.AuthenticationViewModel_Command_LogoutCommand, new RelayCommand(Logout, CanLogout)),
             };
         }
-        void CreateNewCustomer()
+        void CreateNewCustomer(object parameter)
         {
-            CustomerViewModel workspace = new CustomerViewModel();
-            this.Workspaces.Add(workspace);
-            this.SetActiveWorkspace(workspace);
+
+            Customer newCustomer = Customer.CreateNewCustomer();
+            CustomerViewModel newworkspace = new CustomerViewModel(newCustomer, _customerRepository);
+            this.Workspaces.Add(newworkspace);
+            this.SetActiveWorkspace(newworkspace);
         }
-        /*
         void ShowAllCustomers()
         {
-            AllCustomersViewModel workspace =
-                this.Workspaces.FirstOrDefault(vm => vm is AllCustomersViewModel)
-                as AllCustomersViewModel;
-            if (workspace == null)
+            if (!(this.Workspaces.FirstOrDefault(vm => vm is AllCustomersViewModel) is AllCustomersViewModel workspace))
             {
                 workspace = new AllCustomersViewModel(_customerRepository);
                 this.Workspaces.Add(workspace);
             }
             this.SetActiveWorkspace(workspace);
-        }*/
+        }
         void SetActiveWorkspace(WorkspaceViewModel workspace)
         {
             Debug.Assert(this.Workspaces.Contains(workspace));

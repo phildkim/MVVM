@@ -18,7 +18,7 @@ namespace MVVM.Service.Authentication
             InternalCredential.Create(
                     "phildkim", "Neg4life",
                     "m5p+O9L2Meykxj2KEL/WFbJ3/PxBKMwBUc8bGnT5sO0=",
-                    new string[] { "Administrators" }),
+                    new string[] { }),
             InternalCredential.Create(
                     "Mark", "Mark",
                     "MB5PYIsbI2YzCUe34Q5ZU2VferIoI4Ttd+ydolWV0OE=",

@@ -88,6 +88,15 @@ namespace MVVM.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to All Customers.
+        /// </summary>
+        internal static string AuthenticationViewModel_Command_AllCustomers {
+            get {
+                return ResourceManager.GetString("AuthenticationViewModel_Command_AllCustomers", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Create Customer.
         /// </summary>
         internal static string AuthenticationViewModel_Command_CreateNewCustomer {
@@ -169,11 +178,56 @@ namespace MVVM.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Company.
+        /// </summary>
+        internal static string CustomerViewModel_CustomerTypeOption_Company {
+            get {
+                return ResourceManager.GetString("CustomerViewModel_CustomerTypeOption_Company", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Not Specified.
+        /// </summary>
+        internal static string CustomerViewModel_CustomerTypeOption_NotSpecified {
+            get {
+                return ResourceManager.GetString("CustomerViewModel_CustomerTypeOption_NotSpecified", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Person.
+        /// </summary>
+        internal static string CustomerViewModel_CustomerTypeOption_Person {
+            get {
+                return ResourceManager.GetString("CustomerViewModel_CustomerTypeOption_Person", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Customer View Model.
         /// </summary>
         internal static string CustomerViewModel_DisplayName {
             get {
                 return ResourceManager.GetString("CustomerViewModel_DisplayName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Missing info.
+        /// </summary>
+        internal static string CustomerViewModel_Error_MissingCustomerType {
+            get {
+                return ResourceManager.GetString("CustomerViewModel_Error_MissingCustomerType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cannot save.
+        /// </summary>
+        internal static string CustomerViewModel_Exception_CannotSave {
+            get {
+                return ResourceManager.GetString("CustomerViewModel_Exception_CannotSave", resourceCulture);
             }
         }
         

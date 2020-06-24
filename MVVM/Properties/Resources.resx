@@ -126,6 +126,9 @@
   <data name="AuthenticationViewModel_ArgumentException" xml:space="preserve">
     <value>ARGUMENT EXCEPTION: Threading Principal object null</value>
   </data>
+  <data name="AuthenticationViewModel_Command_AllCustomers" xml:space="preserve">
+    <value>All Customers</value>
+  </data>
   <data name="AuthenticationViewModel_Command_CreateNewCustomer" xml:space="preserve">
     <value>Create Customer</value>
   </data>
@@ -138,8 +141,23 @@
   <data name="AuthenticationViewModel_DisplayTitle" xml:space="preserve">
     <value>Inventory Management System</value>
   </data>
+  <data name="CustomerViewModel_CustomerTypeOption_Company" xml:space="preserve">
+    <value>Company</value>
+  </data>
+  <data name="CustomerViewModel_CustomerTypeOption_NotSpecified" xml:space="preserve">
+    <value>Not Specified</value>
+  </data>
+  <data name="CustomerViewModel_CustomerTypeOption_Person" xml:space="preserve">
+    <value>Person</value>
+  </data>
   <data name="CustomerViewModel_DisplayName" xml:space="preserve">
     <value>Customer View Model</value>
+  </data>
+  <data name="CustomerViewModel_Error_MissingCustomerType" xml:space="preserve">
+    <value>Missing info</value>
+  </data>
+  <data name="CustomerViewModel_Exception_CannotSave" xml:space="preserve">
+    <value>Cannot save</value>
   </data>
   <data name="Customer_Error_CompanyHasNoLastName" xml:space="preserve">
     <value>Company has no last name</value>

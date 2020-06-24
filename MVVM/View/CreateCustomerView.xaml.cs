@@ -1,12 +1,12 @@
 ﻿using MVVM.ViewModel;
 using System.Security.Permissions;
-using System.Windows;
+using System.Windows.Controls;
 namespace MVVM.View
 {
-    [PrincipalPermission(SecurityAction.Demand, Role = "Administrators")]
-    public partial class CustomerView : Window, IView
+    [PrincipalPermission(SecurityAction.Demand)]
+    public partial class CreateCustomerView : UserControl, IViewModel
     {
-        public CustomerView()
+        public CreateCustomerView()
         {
             InitializeComponent();
         }

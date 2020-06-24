@@ -2,10 +2,13 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:vw="clr-namespace:MVVM.View"
                     xmlns:vm="clr-namespace:MVVM.ViewModel">
-
     <!--CUSTOMER VIEW MODEL DATA TEMPLATE-->
     <DataTemplate DataType="{x:Type vm:CustomerViewModel}">
-        <vw:CustomerView />
+        <vw:CreateCustomerView />
+    </DataTemplate>
+    <!--CUSTOMERS LIST VIEW MODEL DATA TEMPLATE-->
+    <DataTemplate DataType="{x:Type vm:AllCustomersViewModel}">
+        <vw:AllCustomersView />
     </DataTemplate>
     <!--AUTHENTICATION VIEW MODEL DATA TEMPLATE-->
     <DataTemplate DataType="{x:Type vm:AuthenticationViewModel}" />
@@ -18,17 +21,8 @@
         <Setter Property="HeaderTemplate">
             <Setter.Value>
                 <DataTemplate>
-                    <Border Background="{StaticResource Brush_HeaderBackground}" 
-                            BorderBrush="LightGray" 
-                            BorderThickness="1" 
-                            CornerRadius="5" 
-                            Margin="4" Padding="4" 
-                            SnapsToDevicePixels="True">
-                        <TextBlock Text="{TemplateBinding Content}"
-                                   FontSize="14"
-                                   FontWeight="Bold"
-                                   Foreground="White" 
-                                   HorizontalAlignment="Center" />
+                    <Border Background="{StaticResource Brush_HeaderBackground}" BorderBrush="LightGray" BorderThickness="1" CornerRadius="5" Margin="4" Padding="4" SnapsToDevicePixels="True">
+                        <TextBlock Text="{TemplateBinding Content}" HorizontalAlignment="Center" FontSize="16" FontWeight="Bold" Foreground="White" />
                     </Border>
                 </DataTemplate>
             </Setter.Value>
@@ -39,10 +33,8 @@
                 <!--This template ensures that content of a HeaderedContentControl fills the available vertical space.-->
                 <ControlTemplate TargetType="{x:Type HeaderedContentControl}">
                     <DockPanel>
-                        <ContentPresenter ContentTemplate="{TemplateBinding HeaderTemplate}"
-                                          DockPanel.Dock="Top" ContentSource="Header" />
-                        <ContentPresenter ContentTemplate="{TemplateBinding ContentTemplate}" 
-                                          ContentSource="Content"  />
+                        <ContentPresenter ContentTemplate="{TemplateBinding HeaderTemplate}" DockPanel.Dock="Top" ContentSource="Header" />
+                        <ContentPresenter ContentTemplate="{TemplateBinding ContentTemplate}" ContentSource="Content"  />
                     </DockPanel>
                 </ControlTemplate>
             </Setter.Value>
@@ -58,17 +50,12 @@
     </Style>
     <!-- This template explains how to render the list of commands the 'Control Panel' area-->
     <DataTemplate x:Key="CommandsTemplate">
-        <ItemsControl IsTabStop="False" Margin="6,2" HorizontalAlignment="Center"
-                      ItemsSource="{Binding}">
+        <ItemsControl IsTabStop="False" Margin="6,2" HorizontalAlignment="Center" ItemsSource="{Binding}">
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
                     <TextBlock Margin="2,6">
-                        <Button Command="{Binding Path=Command}"
-                                MinHeight="30"
-                                MinWidth="140">
-                            <TextBlock Text="{Binding Path=DisplayName}"
-                                       FontWeight="Bold" 
-                                       Foreground="RoyalBlue" />
+                        <Button Command="{Binding Path=Command}" MinHeight="30" MinWidth="140">
+                            <TextBlock Text="{Binding Path=DisplayName}" FontWeight="Bold" Foreground="RoyalBlue" />
                         </Button>
                     </TextBlock>
                 </DataTemplate>
@@ -78,21 +65,16 @@
     <!-- This template explains how to render a tab item with a close button -->
     <DataTemplate x:Key="ClosableTabItemTemplate">
         <DockPanel Width="120">
-            <Button Content="X" Width="16" Height="16" 
-                    FontSize="9" FontWeight="Bold"  
-                    Margin="0,1,0,0" Padding="0"
-                    Cursor="Hand" DockPanel.Dock="Right"
-                    Focusable="False" FontFamily="Courier" 
-                    VerticalContentAlignment="Bottom"
+            <Button Content="X" Width="16" Height="16" FontSize="9" FontWeight="Bold"  
+                    Margin="0,1,0,0" Padding="0" Cursor="Hand" DockPanel.Dock="Right"
+                    Focusable="False" FontFamily="Courier" VerticalContentAlignment="Bottom"
                     Command="{Binding Path=CloseCommand}" />
-            <ContentPresenter Content="{Binding Path=DisplayName}" 
-                              VerticalAlignment="Center" />
+            <ContentPresenter Content="{Binding Path=DisplayName}" VerticalAlignment="Center" />
         </DockPanel>
     </DataTemplate>
     <!--This template explains how to render the 'Workspace' content area in the main window.-->
     <DataTemplate x:Key="WorkspacesTemplate">
-        <TabControl ItemsSource="{Binding}" Margin="4"
-                    IsSynchronizedWithCurrentItem="True"
+        <TabControl ItemsSource="{Binding}" Margin="4" IsSynchronizedWithCurrentItem="True"
                     ItemTemplate="{StaticResource ClosableTabItemTemplate}" />
     </DataTemplate>
 </ResourceDictionary>
