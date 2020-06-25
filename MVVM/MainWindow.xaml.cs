@@ -10,7 +10,7 @@ namespace MVVM
     }
     public partial class MainWindow : Window, IView
     {
-        public MainWindow(AuthenticationViewModel viewModel)
+        public MainWindow(MainWindowBaseViewModel viewModel)
         {
             ViewModel = viewModel;
             InitializeComponent();

@@ -69,7 +69,6 @@
     </ApplicationDefinition>
     <Compile Include="Model\Credential.cs" />
     <Compile Include="Model\Customer.cs" />
-    <Compile Include="Model\ICredential.cs" />
     <Compile Include="RelayCommand.cs" />
     <Compile Include="Service\Authentication\AuthenticationService.cs" />
     <Compile Include="Service\Identity\LoginAnonymous.cs" />
@@ -83,6 +82,7 @@
     <Compile Include="ViewModel\BaseViewModel.cs" />
     <Compile Include="ViewModel\CommandViewModel.cs" />
     <Compile Include="ViewModel\CustomerViewModel.cs" />
+    <Compile Include="ViewModel\MainWindowBaseViewModel.cs" />
     <Compile Include="ViewModel\ValidationViewModel.cs" />
     <Compile Include="ViewModel\WorkspaceViewModel.cs" />
     <Compile Include="View\AdminView.xaml.cs">
@@ -90,6 +90,9 @@
     </Compile>
     <Compile Include="View\AllCustomersView.xaml.cs">
       <DependentUpon>AllCustomersView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\AuthenticationView.xaml.cs">
+      <DependentUpon>AuthenticationView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\CreateCustomerView.xaml.cs">
       <DependentUpon>CreateCustomerView.xaml</DependentUpon>
@@ -118,6 +121,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\AllCustomersView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\AuthenticationView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

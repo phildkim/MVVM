@@ -259,6 +259,15 @@ namespace MVVM.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to INVENTORY MANAGEMENT SYSTEM.
+        /// </summary>
+        internal static string MainWindowViewModel_DisplayName {
+            get {
+                return ResourceManager.GetString("MainWindowViewModel_DisplayName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to AuthenticatedUser.
         /// </summary>
         internal static string NotifyPropertyChanged_Authenticated {

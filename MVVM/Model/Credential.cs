@@ -4,9 +4,17 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 namespace MVVM.Model
 {
+    public interface ICredential
+    {
+        string Username { get; }
+        string Password { get; }
+    }
+
     // Credential Class validates user credentials
     public class Credential : ValidationViewModel, ICredential
     {
+        
+
         #region Credential Fields
         private struct Data
         {

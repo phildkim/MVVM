@@ -18,7 +18,7 @@ namespace MVVM
             LoginPrincipal loginPrincipal = new LoginPrincipal();
             AppDomain.CurrentDomain.SetThreadPrincipal(loginPrincipal);
             base.OnStartup(e);
-            AuthenticationViewModel viewModel = new AuthenticationViewModel(new AuthenticationService());
+            MainWindowBaseViewModel viewModel = new MainWindowBaseViewModel(new AuthenticationService());
             EventHandler handler = null;
             IView loginWindow = new MainWindow(viewModel);
             handler = delegate

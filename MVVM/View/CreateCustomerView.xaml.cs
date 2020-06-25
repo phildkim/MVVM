@@ -3,7 +3,7 @@ using System.Security.Permissions;
 using System.Windows.Controls;
 namespace MVVM.View
 {
-    [PrincipalPermission(SecurityAction.Demand)]
+    //[PrincipalPermission(SecurityAction.Demand)]
     public partial class CreateCustomerView : UserControl, IViewModel
     {
         public CreateCustomerView()

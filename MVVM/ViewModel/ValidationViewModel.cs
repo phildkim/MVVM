@@ -8,7 +8,7 @@ namespace MVVM.ViewModel
 {
     public abstract class ValidationViewModel : BaseViewModel, INotifyDataErrorInfo
     {
-        private Dictionary<string, List<string>> _errors = new Dictionary<string, List<string>>();
+        private readonly Dictionary<string, List<string>> _errors = new Dictionary<string, List<string>>();
         public event EventHandler<DataErrorsChangedEventArgs> ErrorsChanged = delegate { };
         public System.Collections.IEnumerable GetErrors(string propertyName)
         {

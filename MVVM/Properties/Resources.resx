@@ -183,6 +183,9 @@
   <data name="LoginIdentity_Customers" xml:space="preserve">
     <value>Customers</value>
   </data>
+  <data name="MainWindowViewModel_DisplayName" xml:space="preserve">
+    <value>INVENTORY MANAGEMENT SYSTEM</value>
+  </data>
   <data name="NotifyPropertyChanged_Authenticated" xml:space="preserve">
     <value>AuthenticatedUser</value>
   </data>
